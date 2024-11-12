@@ -1,2 +1,108 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+library(haven)
+library(tidyverse)
+JF <- read_csv2("Japserfile.csv")
+library(gmodels)
+
+JF$trans <- JF$'(in)trans'
+
+CrossTable(JF$trans, JF$gender, digits = 3, prop.r = TRUE, prop.c =TRUE,
+           prop.t = FALSE, chisq = TRUE) 
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+> View(JF)
+> library(gmodels)
+> JF$trans <- JF$'(in)trans'
+> CrossTable(JF$gender, JF$(in)trans, digits = 3, prop.r = TRUE, prop.c =TRUE,
+Error: unexpected '(' in "CrossTable(JF$gender, JF$("
+> CrossTable(JF$gender, JF$trans, digits = 3, prop.r = TRUE, prop.c =TRUE,
++            prop.t = FALSE, chisq = TRUE)
+
+ 
+   Cell Contents
+|-------------------------|
+|                       N |
+| Chi-square contribution |
+|           N / Row Total |
+|           N / Col Total |
+|-------------------------|
+ 
+Total Observations in Table:  200 
+
+ 
+             | JF$trans 
+   JF$gender |         0 |         1 | Row Total | 
+-------------|-----------|-----------|-----------|
+           m |        54 |        46 |       100 | 
+             |     0.077 |     0.083 |           | 
+             |     0.540 |     0.460 |     0.500 | 
+             |     0.519 |     0.479 |           | 
+-------------|-----------|-----------|-----------|
+           v |        50 |        50 |       100 | 
+             |     0.077 |     0.083 |           | 
+             |     0.500 |     0.500 |     0.500 | 
+             |     0.481 |     0.521 |           | 
+-------------|-----------|-----------|-----------|
+Column Total |       104 |        96 |       200 | 
+             |     0.520 |     0.480 |           | 
+-------------|-----------|-----------|-----------|
+
+ 
+Statistics for All Table Factors
+
+
+Pearson's Chi-squared test 
+------------------------------------------------------------
+Chi^2 =  0.3205128     d.f. =  1     p =  0.5712996 
+
+Pearson's Chi-squared test with Yates' continuity correction 
+------------------------------------------------------------
+Chi^2 =  0.1802885     d.f. =  1     p =  0.6711255 
+
+ 
+> CrossTable(JF$trans, JF$gender, digits = 3, prop.r = TRUE, prop.c =TRUE,
++            prop.t = FALSE, chisq = TRUE)
+
+ 
+   Cell Contents
+|-------------------------|
+|                       N |
+| Chi-square contribution |
+|           N / Row Total |
+|           N / Col Total |
+|-------------------------|
+
+ 
+Total Observations in Table:  200 
+
+ 
+             | JF$gender 
+    JF$trans |         m |         v | Row Total | 
+-------------|-----------|-----------|-----------|
+           0 |        54 |        50 |       104 | 
+             |     0.077 |     0.077 |           | 
+             |     0.519 |     0.481 |     0.520 | 
+             |     0.540 |     0.500 |           | 
+-------------|-----------|-----------|-----------|
+           1 |        46 |        50 |        96 | 
+             |     0.083 |     0.083 |           | 
+             |     0.479 |     0.521 |     0.480 | 
+             |     0.460 |     0.500 |           | 
+-------------|-----------|-----------|-----------|
+Column Total |       100 |       100 |       200 | 
+             |     0.500 |     0.500 |           | 
+-------------|-----------|-----------|-----------|
+
+ 
+Statistics for All Table Factors
+
+
+Pearson's Chi-squared test 
+------------------------------------------------------------
+Chi^2 =  0.3205128     d.f. =  1     p =  0.5712996 
+
+Pearson's Chi-squared test with Yates' continuity correction 
+------------------------------------------------------------
+Chi^2 =  0.1802885     d.f. =  1     p =  0.6711255 
