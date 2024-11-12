@@ -3,10 +3,7 @@ from pathlib import Path
 import re 
 
 def zoek(file):
-    """
-    with open(file, encoding = 'latin-1') as f:
-        read_data = f.read()
-    """ 
+    
     result = []
     f = open(file,'r', encoding = 'latin-1')
     lines = f.readlines()
@@ -20,12 +17,7 @@ def zoek(file):
         if(zin2!=None): 
             result.append(zin2.group(0))          
                  
-    
-    """
-    lines = open(file,'r').readlines()
-    "'.*' zei hij"
-    "'.*' zegt hij"
-    """
+ 
     return result
 
 
