@@ -3,10 +3,7 @@ from pathlib import Path
 import re 
 
 def zoek(file):
-    """
-    with open(file, encoding = 'latin-1') as f:
-        read_data = f.read()
-    """ 
+
     result = []
     f = open(file,'r', encoding = 'latin-1')
     lines = f.readlines()
@@ -47,8 +44,7 @@ def main():
         for zin in lijstje: 
             f.write('\n\n>')
             f.write(zin)
-            
-    
+                
     f.close()
     
 if __name__ == "__main__":
